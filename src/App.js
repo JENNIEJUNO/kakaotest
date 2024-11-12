@@ -3,12 +3,20 @@ import React, { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-  window.Kakao = window.Kakao || {};
-  window.kakaoAsyncInit = function() {
-    Kakao.Channel.createChatButton({
-      container: '#kakao-talk-channel-chat-button',
-    });
-  };
+  // window.Kakao = window.Kakao || {};
+  // window.kakaoAsyncInit = function() {
+  //   Kakao.Channel.createChatButton({
+  //     container: '#kakao-talk-channel-chat-button',
+  //   });
+  // };
+  if (typeof window !== 'undefined' && window.Kakao) {
+    window.Kakao = window.Kakao || {};
+
+    window.kakaoAsyncInit = function () {
+      Kakao.Channel.createChatButton({
+        container: '#kakao-talk-channel-chat-button',
+      });
+    };
 
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
